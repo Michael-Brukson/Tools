@@ -1,15 +1,15 @@
-## ipv4.cmd
+## ipv4.ps1
 
 A simpler way to get the current ipv4 address of the machine that the command is executed on.
 
-Calls `ipconfig` and pipes it to `findstr /i 'ipv4`, then performs basic text extraction to get the address.
+Calls `ipconfig` and pipes it to `Select-String -Pattern 'IPv4`, then performs basic text extraction to get the address.
 
 Accepts no parameters.
 
 ### Examples:
 
-```bash
-C:\>ipv4
+```PowerShell
+C:\>.\ipv4
 192.168.1.220
 ```
 
@@ -29,8 +29,8 @@ Calls `curl` to `qrenco.de/{http(s)}://{host}:{port}`
 
 No parameters, qr for `http://192.168.1.220:80`:
 
-```bash
-C:\>ipv4_qr
+```PowerShell
+C:\>.\ipv4_qr
 █████████████████████████████████
 █████████████████████████████████
 ████ ▄▄▄▄▄ ██▀▄██▀▄▀▄█ ▄▄▄▄▄ ████
@@ -52,12 +52,12 @@ C:\>ipv4_qr
 
 With `-verbose` / `-v`:
 
-```bash
+```PowerShell
 C:\>ipv4_qr -v
-Secure?: false
-Port: 80
-Host: 192.168.1.220
-curling: http://192.168.1.220:80
+Secure?:  False
+Port:  80
+Host:  192.168.1.220
+curling:  http://192.168.1.220:80
 █████████████████████████████████
 █████████████████████████████████
 ████ ▄▄▄▄▄ ██▀▄██▀▄▀▄█ ▄▄▄▄▄ ████
@@ -79,12 +79,12 @@ curling: http://192.168.1.220:80
 
 With all parameters::
 
-```bash
+```PowerShell
 C:\>ipv4_qr -s -v -p 55
-Secure?: true
-Port: 55
-Host: 192.168.1.220
-curling: https://192.168.1.220:55
+Secure?:  True
+Port:  55
+Host:  192.168.1.220
+curling:  https://192.168.1.220:55
 █████████████████████████████████
 █████████████████████████████████
 ████ ▄▄▄▄▄ ██▄▀▀ ██  █ ▄▄▄▄▄ ████
