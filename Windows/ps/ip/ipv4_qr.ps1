@@ -7,7 +7,7 @@ param (
     [int]$PORT = 80
 )
 
-$IPV4 = &.\ipv4.ps1 | ForEach-Object { $_.Trim() } | Where-Object { $_ -ne "" } | Select-Object -Last 1 
+$IPV4 = &.\ipv4 | ForEach-Object { $_.Trim() } | Where-Object { $_ -ne "" } | Select-Object -Last 1 
 
 $PROT = if ($SEC) {"https"} else {"http"}
 [string]$URL = "https://qrenco.de/{0}://{1}:{2}" -f $PROT, $IPV4, $PORT
