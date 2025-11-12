@@ -4,7 +4,9 @@ A 'simpler' way to serve the current directory's files to the local wifi.
 
 Calls `python -m http.server` with a specified port and directory, binding it to `0.0.0.0` to broadcast to the local wifi. Then, calls `ipv4_qr` with the specified port to print a qr code to the http address of the served directory.
 
-_REQUIRES_ Python version 3.\*
+To close the server, either use `Ctrl + C` while focused on the window, or simply close the window itself.
+
+_REQUIRES_ Python version 3.\* \
 _REQUIRES_ That Windows/cmd/ip is set as a path environment variable. (will set up automation for this later)
 
 ### Accepts parameters:
