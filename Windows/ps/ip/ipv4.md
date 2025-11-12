@@ -23,7 +23,7 @@ Calls `curl` to `qrenco.de/{http(s)}://{host}:{port}`
 
 - `-sec` / `-s` `<boolean>` : "Secure"; whether to use https or http. Defaults to http.
 - `-port` / `-p` `<integer>`: "Port"; the port of the address to send to `qrenco.de`. Defaults to 80.
-- `-verbose` / `-v` `<boolean>`: "Verbose"; whether to print out info about Secure, host, and port.
+- `-verbose` / `-v` `<boolean>`: "Verbose"; whether to print out info about Secure, host, and port. Defaults to false.
 
 ### Examples:
 
