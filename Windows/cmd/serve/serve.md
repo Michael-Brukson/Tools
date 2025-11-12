@@ -13,6 +13,7 @@ _REQUIRES_ That Windows/cmd/ip is set as a path environment variable. (will set 
 
 - `-dir` / `-d` `<string>`: "Directory"; the directory to serve. Defaults to current directory.
 - `-port` / `-p` `<integer>`: "Port"; the port of the address of the qr code and http address of the served directory. Defaults to 80.
+- `-file` / `-f` `<string>`: "Filename"; the name of the file to serve if only one file is requested specifically. Defaults to empty string.
 - `-verbose` / `-v` `<boolean>`: "Verbose"; whether to print out info about port and served directory. Defaults to false.
 
 ### Examples:
@@ -46,6 +47,7 @@ With `-verbose` / `-v`:
 ```bash
 C:\>serve -v
 Port: 80
+File:
 Serving directory: C:\
 █████████████████████████████████
 █████████████████████████████████
@@ -70,8 +72,9 @@ Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...
 With all parameters:
 
 ```bash
-C:\>serve -v -p 3000 -d C:\Tools\Windows\ps
+C:\>serve -v -p 3000 -d C:\Tools\Windows\ps -f "testing.png"
 Port: 3000
+File: testing.png
 Serving directory: C:\Tools\Windows\ps
 █████████████████████████████████
 █████████████████████████████████

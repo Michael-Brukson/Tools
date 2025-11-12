@@ -23,6 +23,7 @@ Calls `curl` to `qrenco.de/{http(s)}://{host}:{port}`
 
 - `-sec` / `-s` `<boolean>` : "Secure"; whether to use https or http. Defaults to http.
 - `-port` / `-p` `<integer>`: "Port"; the port of the address to send to `qrenco.de`. Defaults to 80.
+- `-route` / `-r` `<string>`: "Route"; the name of the a destination beyond the host and port. Defaults to empty string.
 - `-verbose` / `-v` `<boolean>`: "Verbose"; whether to print out info about Secure, host, and port. Defaults to false.
 
 ### Examples:
@@ -57,6 +58,7 @@ C:\>ipv4_qr -v
 Secure?: false
 Port: 80
 Host: 192.168.1.220
+Route:
 curling: http://192.168.1.220:80
 █████████████████████████████████
 █████████████████████████████████
@@ -80,11 +82,12 @@ curling: http://192.168.1.220:80
 With all parameters:
 
 ```bash
-C:\>ipv4_qr -s -v -p 55
+C:\>ipv4_qr -s -v -p 55 -r "testing"
 Secure?: true
 Port: 55
 Host: 192.168.1.220
-curling: https://192.168.1.220:55
+Route: testing
+curling: https://192.168.1.220:55/testing
 █████████████████████████████████
 █████████████████████████████████
 ████ ▄▄▄▄▄ ██▄▀▀ ██  █ ▄▄▄▄▄ ████
