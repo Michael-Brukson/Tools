@@ -51,6 +51,11 @@ goto PARSE_ARGS
 
 for /f "usebackq delims=" %%a in (`call ipv4`) do set "HOST=%%a"
 
+if defined ROUTE (
+	rem replace all spaces with %20 for url encoding
+	set "ROUTE=!ROUTE: =%%20!"
+)
+
 set "URL=qrenco.de/%PROT%://%HOST%:%PORT%/%ROUTE%"
 
 if %VERBOSE%==1 (

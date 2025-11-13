@@ -49,8 +49,8 @@ if "%VERBOSE%"=="1" (
 	echo Directory: !DIR!
 )
 
-call ipv4_qr -p %PORT% -r %FILENAME%
-call python -m http.server %PORT% --bind 0.0.0.0 --directory !DIR!
+call ipv4_qr -p %PORT% -r "%FILENAME%"
+call python -m http.server %PORT% --bind 0.0.0.0 --directory "!DIR!"
 
 
 endlocal
