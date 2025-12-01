@@ -6,6 +6,7 @@ set "PORT=80"
 set "VERBOSE=0"
 set "FILENAME="
 for /f "usebackq delims=" %%a in (`call cd`) do set "DIR=%%a"
+for /f "usebackq delims=" %%a in (`call ipv4`) do set "IPV4=%%a"
 
 
 :PARSE_ARGS
@@ -50,7 +51,7 @@ if "%VERBOSE%"=="1" (
 )
 
 call ipv4_qr -p %PORT% -r "%FILENAME%"
-call python -m http.server %PORT% --bind 0.0.0.0 --directory "!DIR!"
+call python -m http.server %PORT% --bind !IPV4! --directory "!DIR!"
 
 
 endlocal
