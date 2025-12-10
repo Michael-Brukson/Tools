@@ -6,6 +6,7 @@ set "PORT=80"
 set "VERBOSE=0"
 set "FILENAME="
 for /f "usebackq delims=" %%a in (`call cd`) do set "DIR=%%a"
+for /f "usebackq delims=" %%a in (`call ipv4`) do set "IPV4=%%a"
 
 
 :PARSE_ARGS
@@ -51,8 +52,8 @@ if "%VERBOSE%"=="1" (
 
 call ipv4_qr -p %PORT% -r "%FILENAME%"
 @REM TODO: look into only logging python output when -v is passed.
-@REM call python -m http.server %PORT% --bind 0.0.0.0 --directory "!DIR!" > NUL 2 > &1
-call python -m http.server %PORT% --bind 0.0.0.0 --directory "!DIR!"
+@REM call python -m http.server %PORT% --bind !IPV4! --directory "!DIR!" > NUL 2 > &1
+call python -m http.server %PORT% --bind !IPV4! --directory "!DIR!"
 
 
 endlocal
