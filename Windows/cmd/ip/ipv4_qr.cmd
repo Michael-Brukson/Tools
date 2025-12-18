@@ -56,7 +56,7 @@ if defined ROUTE (
 	set "ROUTE=!ROUTE: =%%20!"
 )
 
-set "URL=qrenco.de/%PROT%://%HOST%:%PORT%/%ROUTE%"
+set "URL=qrcode.show/%PROT%://%HOST%:%PORT%/%ROUTE%"
 
 if %VERBOSE%==1 (
 	if %SEC%==1 (echo Secure?: true) else (echo Secure?: false)
