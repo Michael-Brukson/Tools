@@ -1,6 +1,5 @@
 import customtkinter as Ctk
 import tkinter as tk
-from tkinter import PhotoImage
 from tkinter.filedialog import askdirectory, askopenfilename
 from functools import partial
 import subprocess
@@ -28,6 +27,8 @@ class Serve:
         @property
         def field(self):
             return self.__tf
+
+    IPV4: str = subprocess.run(['ipv4'], capture_output=True, text=True, shell=True).stdout.split()[0]
 
     __BASE_CONFIG = {
         "bg" : "gray14"
@@ -152,7 +153,6 @@ class Serve:
             # MARK: This line does not print, because stdout is a constant stream. 
             self.__console.print_divider() 
 
-
         if os.path.exists(self.__serve_path):
             cmd_base = self.__serve_path
             cmd = ["cmd", "/c", cmd_base, "-d", path, "-f", file] + (["-v"] if self.__verbose.get() else [])
@@ -177,14 +177,14 @@ class Serve:
     def __file_select(self, file: bool) -> None:
         path: str = ''
         filename: str = ''
-        title: str = 'Select a '
+        title_base: str = 'Select a '
 
         if file:
-            path = askopenfilename(title=title.join('File'))
+            path = askopenfilename(title=title_base.join('File'))
             filename = path[path.rfind('/') + 1:]
             path = path[:path.rfind('/')]
         else:
-            path = askdirectory(title=title.join('Directory'))
+            path = askdirectory(title=title_base.join('Directory'))
 
         if path: 
             self.__run_serve(path, filename)
@@ -205,4 +205,5 @@ class Serve:
 
 if __name__ == "__main__":
     sv = Serve()
-    sv.run()
+    print(sv.IPV4)
+    # sv.run()
