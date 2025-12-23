@@ -7,7 +7,7 @@ Some basic tools I use, mostly in PowerShell/cmd/bash.
 
 - [ipv4 & ipv4_qr](Windows/cmd/ip/ipv4.md)
 - [serve](Windows/cmd/serve/serve.md)
-- [Serve (executable)](Windows/python/serve.md) (documentation to be added)
+- [Serve (executable)](Windows/python/serve.md)
 - [javar](Windows/cmd/java/javar.md)
 
 </details>
