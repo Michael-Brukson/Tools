@@ -1,4 +1,4 @@
-# qrencode -t ansiutf8  ""
+#!/bin/bash
 
 # "protocol" parameter- string representation of SEC parameter. Allows waving of headache-y if statements.
 _PROT="http"
@@ -12,11 +12,11 @@ _ROUTE=""
 # TODO: Add option for long argument (i.e. --port)
 while getopts ":svp:r:" option; do
     case $option in
+        v)
+            _VERBOSE=1;;
         s)
             _SEC=1
             _PROT="https";;
-        v)
-            _VERBOSE=1;;
         p) 
             _PORT=${OPTARG};;
         r)
@@ -30,10 +30,10 @@ function log () {
 	echo "Port: $_PORT"
 	echo "Host: $_HOST"
 	echo "Route: $_ROUTE"
-	echo "curling: $_URL"
+	echo "Encoding: $_URL"
 }
 
-_HOST=`./ipv4.sh`
+_HOST=`ipv4`
 _URL="$_PROT://$_HOST:$_PORT/$_ROUTE"
 # replace route spaces with %20 for urls
 _URL="${_URL// /"%20"}"
