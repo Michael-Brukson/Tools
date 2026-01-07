@@ -1,6 +1,6 @@
 #!/bin/bash
 
-_PORT="8000"
+_PORT="53317"
 _VERBOSE=0
 _FILENAME=""
 _DIR=`pwd`
