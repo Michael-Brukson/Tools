@@ -1,0 +1,35 @@
+#!/bin/bash
+
+_PORT="8000"
+_VERBOSE=0
+_FILENAME=""
+_DIR=`pwd`
+_IPV4=`ipv4`
+
+while getopts ":vp:d:f:" option; do
+    case $option in
+        v)
+            _VERBOSE=1;;
+        p) 
+            _PORT=${OPTARG};;
+        d)
+            _DIR=${OPTARG};;
+        f)
+            _FILENAME=${OPTARG};;
+    esac    
+done
+
+function log () {
+	echo "Port: $_PORT"
+	echo "File: $_FILENAME"
+	echo "Directory: $_DIR"
+}
+
+if [[ $_VERBOSE -eq 1 ]]; then 
+    log
+fi
+
+ipv4_qr -p $_PORT -r $_FILENAME
+
+# TODO: Figure out why this is inaccessible on the network.
+python -m http.server $_PORT -b $_IPV4 -d $_DIR
